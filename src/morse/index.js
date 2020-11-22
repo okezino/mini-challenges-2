@@ -58,6 +58,25 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  function isNotAString(test) {
+    return typeof test !== 'string' && !(test instanceof String);
+  }
+  
+  if(isNotAString(text)){
+    return "Please provide a morse string"; 
+  }else {
+    let mainoutput = []
+    let output = text.split(" ")
+    for(let i = 0; i < output.length; i++){
+      mainoutput.push(MORSE_CODE[output[i]])
+    }
+   
+    return mainoutput.join(" ")
+
+  }
+ 
+ 
+}
 
 module.exports = morse;
